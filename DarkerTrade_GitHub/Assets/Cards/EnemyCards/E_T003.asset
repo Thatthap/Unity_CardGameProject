@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fac8600640b74c649dd02cca4faf6eb, type: 3}
+  m_Name: E_T003
+  m_EditorClassIdentifier: 
+  CardName: FakeHero
+  ActionDescription: "\t\t"
+  CardLore: "Human\t"
+  currentHeathLeft: 7
+  currentHeathRight: 7
+  currentHeathTop: 2
+  currentHeathDown: 2
+  attackPowerLeft: 7
+  attackPowerRight: 7
+  attackPowerTop: 2
+  attackPowerDown: 2
+  manaCost: 6
+  CardSprite: {fileID: 21300000, guid: 6bc1e44d3489d4fa9a0568ed1e45d0fb, type: 3}

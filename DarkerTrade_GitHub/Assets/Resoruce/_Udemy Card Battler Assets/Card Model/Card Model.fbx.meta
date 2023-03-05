@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: 1f89a578ed4ecee4b9b3d0429697416a
 ModelImporter:
-  serializedVersion: 21202
+  serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Card_Back
-    second: {fileID: 2100000, guid: 0b1af1fbf0ed58e4ab108153bd55c0da, type: 2}
+    second: {fileID: 2100000, guid: 1a6d18913117d4ebfa4939dc7642eb66, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -109,6 +109,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

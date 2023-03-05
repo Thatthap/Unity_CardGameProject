@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class HandController : MonoBehaviour
 {
-
+    public static HandController instance;
     public List<Card> HeldCards = new List<Card>();
     public Transform minPos, maxPos;
     public List<Vector3> cardPosition = new List<Vector3>();
 
+
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +49,27 @@ public class HandController : MonoBehaviour
             HeldCards[i].inHand = true;
             HeldCards[i].handPosition = i; 
         }
+    }
+
+    public void RemoveCardFromHand(Card cardToRemove)
+    {
+        if(HeldCards[cardToRemove.handPosition] == cardToRemove)
+        {
+            HeldCards.RemoveAt(cardToRemove.handPosition);
+
+        }
+        else
+        {
+            Debug.LogError("Card at position" + cardToRemove.handPosition + "is not the card being remove from hand");
+        }
+
+        SetCardPositionInHand();  
+    }
+
+    public void AddCardToHand(Card cardtoAdd)
+    {
+        HeldCards.Add(cardtoAdd);
+        SetCardPositionInHand();
     }
 
 }

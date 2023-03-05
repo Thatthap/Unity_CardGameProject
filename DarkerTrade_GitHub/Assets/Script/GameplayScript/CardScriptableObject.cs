@@ -14,4 +14,6 @@ public class CardScriptableObject : ScriptableObject
     public int currentHeathLeft, currentHeathRight, currentHeathTop, currentHeathDown , attackPowerLeft, attackPowerRight, attackPowerTop, attackPowerDown , manaCost;
 
     public Sprite CardSprite;
+
+
 }

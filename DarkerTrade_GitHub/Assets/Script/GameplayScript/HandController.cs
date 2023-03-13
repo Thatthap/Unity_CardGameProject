@@ -72,4 +72,14 @@ public class HandController : MonoBehaviour
         SetCardPositionInHand();
     }
 
+    public void EmptyHand()
+    {
+        foreach(Card heldCard in HeldCards)
+        {
+            heldCard.inHand = false;
+            heldCard.MovetoPoint(BattleController.instance.discardPoint.position, heldCard.transform.rotation);
+        }
+
+        HeldCards.Clear();
+    }
 }

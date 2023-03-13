@@ -34,8 +34,11 @@ public class EnemyController : MonoBehaviour
         {
             SetUpHand();
         }
+        enemyAIType = AIType.handDefensive;
 
     }
+
+    // Get AdjacentPoints
 
     private List<int> GetAdjacentPoints(int index)
     { // For AI
@@ -131,7 +134,7 @@ public class EnemyController : MonoBehaviour
         int iterations = 0;
         List<CardPlacePoint> preferredPoints = new List<CardPlacePoint>();
         List<CardPlacePoint> secondaryPoints = new List<CardPlacePoint>();
-
+     
 
         switch (enemyAIType)
         {
@@ -363,12 +366,12 @@ public class EnemyController : MonoBehaviour
 
 
 
-        CardPlacePoint enemyCardPoint = CardPointController.instance.enemyCardPoints.FirstOrDefault(p => p.transform.position == placepoint.transform.position);
+        /*CardPlacePoint enemyCardPoint = CardPointController.instance.enemyCardPoints.FirstOrDefault(p => p.transform.position == placepoint.transform.position);
         if (enemyCardPoint != null)
         {
             enemyCardPoint.IsEnemyPlace = true;
             Debug.Log("IsEnemyPlaceTrue");
-        }
+        }*/
 
        /* CardPlacePoint enemyCardPoint = CardPointController.instance.enemyCardPoints[i];
         enemyCardPoint.IsEnemyPlace = true;

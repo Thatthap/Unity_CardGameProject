@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fac8600640b74c649dd02cca4faf6eb, type: 3}
   m_Name: TestCard02
   m_EditorClassIdentifier: 
-  CardName: CardTest02
+  CardName: Witch
   ActionDescription: This is a Sceond card in game
   CardLore: Human
   currentHeathLeft: 5
@@ -24,4 +24,4 @@ MonoBehaviour:
   attackPowerTop: 5
   attackPowerDown: 5
   manaCost: 5
-  CardSprite: {fileID: 21300000, guid: 0493552a8875e4228b6d15f19f22038d, type: 3}
+  CardSprite: {fileID: 21300000, guid: 4f407aadf35894a569033d2c45459e66, type: 3}

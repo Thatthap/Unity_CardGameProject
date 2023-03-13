@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: PlayfairDisplay_CardEnemy1
+  m_Name: PlayfairDisplay_ATKEnemy
   m_EditorClassIdentifier: 
   hashCode: -1047871262
   material: {fileID: -8524423298304631618}

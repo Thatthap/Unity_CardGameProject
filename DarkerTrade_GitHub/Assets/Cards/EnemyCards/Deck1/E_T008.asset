@@ -10,20 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fac8600640b74c649dd02cca4faf6eb, type: 3}
-  m_Name: T001
+  m_Name: E_T008
   m_EditorClassIdentifier: 
-  CardName: Demon Girl
-  ActionDescription: Demon Girl
-  CardLore: 'Demon
-
-'
-  currentHeathLeft: 1
-  currentHeathRight: 1
-  currentHeathTop: 1
-  currentHeathDown: 1
-  attackPowerLeft: 1
-  attackPowerRight: 1
-  attackPowerTop: 1
-  attackPowerDown: 1
-  manaCost: 1
-  CardSprite: {fileID: 21300000, guid: e8f0327894b4b4015b8a22aae445f162, type: 3}
+  CardName: FlowerGirl
+  ActionDescription: 
+  CardLore: Dragon
+  currentHeathLeft: 2
+  currentHeathRight: 3
+  currentHeathTop: 3
+  currentHeathDown: 2
+  attackPowerLeft: 2
+  attackPowerRight: 3
+  attackPowerTop: 3
+  attackPowerDown: 2
+  manaCost: 2
+  CardSprite: {fileID: 21300000, guid: 8633adf9fab0a48f68441e5b25e17953, type: 3}

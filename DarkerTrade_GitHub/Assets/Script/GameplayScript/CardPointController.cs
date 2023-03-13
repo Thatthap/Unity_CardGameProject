@@ -9,9 +9,14 @@ public class CardPointController : MonoBehaviour
 
     public float TimeBetweenAttack = 0.25f;
 
-    public bool hasAttacked1 = false, hasAttacked2 = false , hasAttacked3 = false, hasAttacked4 = false, hasAttacked5 = false, hasAttacked6 = false, hasAttacked7 = false
+    private bool hasAttacked1 = false, hasAttacked2 = false , hasAttacked3 = false, hasAttacked4 = false, hasAttacked5 = false, hasAttacked6 = false, hasAttacked7 = false
         , hasAttacked8 = false, hasAttacked9 = false, hasAttacked10 = false, hasAttacked11 = false, hasAttacked12 = false, hasAttacked13 = false, hasAttacked14 = false
         , hasAttacked15 = false, hasAttacked16 = false;
+
+    private bool EhasAttacked1 = false, EhasAttacked2 = false, EhasAttacked3 = false, EhasAttacked4 = false, EhasAttacked5 = false, EhasAttacked6 = false, EhasAttacked7 = false
+        , EhasAttacked8 = false, EhasAttacked9 = false, EhasAttacked10 = false, EhasAttacked11 = false, EhasAttacked12 = false, EhasAttacked13 = false, EhasAttacked14 = false
+        , EhasAttacked15 = false, EhasAttacked16 = false;
+
     public bool canAttack1 = true;
 
 
@@ -44,6 +49,7 @@ public class CardPointController : MonoBehaviour
 
     IEnumerator PlayerAttackCo()
     {
+
         yield return new WaitForSeconds(TimeBetweenAttack);
 
         for (int i = 0; i < playerCardPoints.Length; i++)
@@ -80,9 +86,10 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
-
+                   // hasAttacked1 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
+
                 yield return new WaitForSeconds(TimeBetweenAttack);
             }
 
@@ -113,7 +120,7 @@ public class CardPointController : MonoBehaviour
                 }
                     else
                     {
- 
+                  //  hasAttacked2 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
                // playerCardPoints[1].activeCard = null;
@@ -138,7 +145,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
-
+                  //  hasAttacked3 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
                // playerCardPoints[2].activeCard = null;
@@ -164,7 +171,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
-               
+                 //   hasAttacked4 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
               //  playerCardPoints[3].activeCard = null;
@@ -204,7 +211,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
-                 
+                  //  hasAttacked5 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
                // playerCardPoints[4].activeCard = null;
@@ -244,6 +251,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
+                 //   hasAttacked6 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
               //  playerCardPoints[5].activeCard = null;
@@ -276,6 +284,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else 
                 {
+                  //  hasAttacked7 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
               //  playerCardPoints[6].activeCard = null;
@@ -308,6 +317,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
+                   // hasAttacked8 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
 
@@ -347,6 +357,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
+                  //  hasAttacked9 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
 
@@ -386,6 +397,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
+                 //   hasAttacked10 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
 
@@ -418,6 +430,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
+                   // hasAttacked11 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
 
@@ -450,6 +463,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
+                 //   hasAttacked12 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
 
@@ -482,6 +496,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
+                 //   hasAttacked13 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
 
@@ -514,6 +529,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
+                 //   hasAttacked14 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
 
@@ -539,6 +555,7 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
+                 //   hasAttacked15 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
 
@@ -564,11 +581,16 @@ public class CardPointController : MonoBehaviour
                 }
                 else
                 {
+                 //   hasAttacked16 = false;
                     //Attack Overall Leader Heath (Notthing Happen in RealGame)(CostPlayer - CostEnemy = LeaderDamage)
                 }
 
                 yield return new WaitForSeconds(TimeBetweenAttack);
-            } 
+            }
+            if (BattleController.instance.battleEnded == true)
+            {
+                i = playerCardPoints.Length;
+            }
         }
 
         CheckAssignedCards();
@@ -608,27 +630,27 @@ public class CardPointController : MonoBehaviour
             {
                 //hasAttacked = false;
                // isEnemyPlace = true;
-                if (playerCardPoints[1].activeCard != null && !hasAttacked1)
+                if (playerCardPoints[1].activeCard != null && !EhasAttacked1)
                 {
                     //AttackEnemyCard
                     playerCardPoints[1].activeCard.DamageCardRight(enemyCardPoints[0].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[0].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked1 = true;
+                    EhasAttacked1 = true;
                 }
-                if (playerCardPoints[3].activeCard != null && !hasAttacked1)
+                if (playerCardPoints[3].activeCard != null && !EhasAttacked1)
                 {
                     playerCardPoints[3].activeCard.DamageCardLeft(enemyCardPoints[0].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
                     enemyCardPoints[0].activeCard.anim.SetTrigger("AttackLeft");
-                    hasAttacked1 = true;
+                    EhasAttacked1 = true;
                 }
-                if (playerCardPoints[4].activeCard != null && !hasAttacked1)
+                if (playerCardPoints[4].activeCard != null && !EhasAttacked1)
                 {
                     playerCardPoints[4].activeCard.DamageCardTop(enemyCardPoints[0].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[0].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked1 = true;
+                    EhasAttacked1 = true;
                 }
                 else
                 {
@@ -641,26 +663,26 @@ public class CardPointController : MonoBehaviour
             {
             //    isEnemyPlace = true;
 
-                if (playerCardPoints[2].activeCard != null && !hasAttacked2)
+                if (playerCardPoints[2].activeCard != null && !EhasAttacked2)
                 {
                     playerCardPoints[2].activeCard.DamageCardRight(enemyCardPoints[1].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[1].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked2 = true;
+                    EhasAttacked2 = true;
                 }
-                if (playerCardPoints[0].activeCard != null && !hasAttacked2)
+                if (playerCardPoints[0].activeCard != null && !EhasAttacked2)
                 {
                     playerCardPoints[0].activeCard.DamageCardLeft(enemyCardPoints[1].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
                     enemyCardPoints[1].activeCard.anim.SetTrigger("AttackLeft");
-                    hasAttacked2 = true;
+                    EhasAttacked2 = true;
                 }
-                if (playerCardPoints[5].activeCard != null && !hasAttacked2)
+                if (playerCardPoints[5].activeCard != null && !EhasAttacked2)
                 {
                     playerCardPoints[5].activeCard.DamageCardTop(enemyCardPoints[1].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[1].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked2 = true;
+                    EhasAttacked2 = true;
                 }
                 else
                 {
@@ -673,19 +695,19 @@ public class CardPointController : MonoBehaviour
             {
              //   isEnemyPlace = true;
 
-                if (playerCardPoints[1].activeCard != null && !hasAttacked3)
+                if (playerCardPoints[1].activeCard != null && !EhasAttacked3)
                 {
                     playerCardPoints[1].activeCard.DamageCardLeft(enemyCardPoints[2].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
                     enemyCardPoints[2].activeCard.anim.SetTrigger("AttackLeft");
-                    hasAttacked3 = true;
+                    EhasAttacked3 = true;
                 }
-                if (playerCardPoints[6].activeCard != null && !hasAttacked3)
+                if (playerCardPoints[6].activeCard != null && !EhasAttacked3)
                 {
                     playerCardPoints[6].activeCard.DamageCardTop(enemyCardPoints[2].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[2].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked3 = true;
+                    EhasAttacked3 = true;
                 }
                 else
                 {
@@ -699,19 +721,19 @@ public class CardPointController : MonoBehaviour
             {
              //   isEnemyPlace = true;
 
-                if (playerCardPoints[0].activeCard != null && !hasAttacked4)
+                if (playerCardPoints[0].activeCard != null && !EhasAttacked4)
                 {
                     playerCardPoints[0].activeCard.DamageCardRight(enemyCardPoints[3].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[3].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked4 = true;
+                    EhasAttacked4 = true;
                 }
-                if (playerCardPoints[7].activeCard != null && !hasAttacked4)
+                if (playerCardPoints[7].activeCard != null && !EhasAttacked4)
                 {
                     playerCardPoints[7].activeCard.DamageCardTop(enemyCardPoints[3].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[3].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked4 = true;
+                    EhasAttacked4 = true;
                 }
                 else
                 {
@@ -724,33 +746,33 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[4].activeCard != null)
             {
 
-                if (playerCardPoints[0].activeCard != null && !hasAttacked5)
+                if (playerCardPoints[0].activeCard != null && !EhasAttacked5)
                 {
                     playerCardPoints[0].activeCard.DamageCardDown(enemyCardPoints[4].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[4].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked5 = true;
+                    EhasAttacked5 = true;
                 }
-                if (playerCardPoints[8].activeCard != null && !hasAttacked5)
+                if (playerCardPoints[8].activeCard != null && !EhasAttacked5)
                 {
                     playerCardPoints[8].activeCard.DamageCardTop(enemyCardPoints[4].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[4].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked5 = true;
+                    EhasAttacked5 = true;
                 }
-                if (playerCardPoints[7].activeCard != null && !hasAttacked5)
+                if (playerCardPoints[7].activeCard != null && !EhasAttacked5)
                 {
                     playerCardPoints[7].activeCard.DamageCardLeft(enemyCardPoints[4].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
                     enemyCardPoints[4].activeCard.anim.SetTrigger("AttackLeft");
-                    hasAttacked5 = true;
+                    EhasAttacked5 = true;
                 }
-                if (playerCardPoints[5].activeCard != null && !hasAttacked5)
+                if (playerCardPoints[5].activeCard != null && !EhasAttacked5)
                 {
                     playerCardPoints[5].activeCard.DamageCardRight(enemyCardPoints[4].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[4].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked5 = true;
+                    EhasAttacked5 = true;
                 }
                 else
                 {
@@ -763,33 +785,33 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[5].activeCard != null)
             {
 
-                if (playerCardPoints[6].activeCard != null && !hasAttacked6)
+                if (playerCardPoints[6].activeCard != null && !EhasAttacked6)
                 {
                     playerCardPoints[6].activeCard.DamageCardRight(enemyCardPoints[5].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[5].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked6 = true;
+                    EhasAttacked6 = true;
                 }
-                if (playerCardPoints[9].activeCard != null && !hasAttacked6)
+                if (playerCardPoints[9].activeCard != null && !EhasAttacked6)
                 {
                     playerCardPoints[9].activeCard.DamageCardTop(enemyCardPoints[5].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[5].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked6 = true;
+                    EhasAttacked6 = true;
                 }
-                if (playerCardPoints[4].activeCard != null && !hasAttacked6)
+                if (playerCardPoints[4].activeCard != null && !EhasAttacked6)
                 {
                     playerCardPoints[4].activeCard.DamageCardLeft(enemyCardPoints[5].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
                     enemyCardPoints[5].activeCard.anim.SetTrigger("AttackLeft");
-                    hasAttacked6 = true;
+                    EhasAttacked6 = true;
                 }
-                if (playerCardPoints[1].activeCard != null && !hasAttacked6)
+                if (playerCardPoints[1].activeCard != null && !EhasAttacked6)
                 {
                     playerCardPoints[1].activeCard.DamageCardDown(enemyCardPoints[5].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[5].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked6 = true;
+                    EhasAttacked6 = true;
                 }
                 else
                 {
@@ -802,26 +824,26 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[6].activeCard != null)
             {
 
-                if (playerCardPoints[5].activeCard != null && !hasAttacked6)
+                if (playerCardPoints[5].activeCard != null && !EhasAttacked7)
                 {
                     playerCardPoints[5].activeCard.DamageCardLeft(enemyCardPoints[6].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
                     enemyCardPoints[6].activeCard.anim.SetTrigger("AttackLeft");
-                    hasAttacked6 = true;
+                    EhasAttacked7 = true;
                 }
-                if (playerCardPoints[10].activeCard != null && !hasAttacked6)
+                if (playerCardPoints[10].activeCard != null && !EhasAttacked7)
                 {
                     playerCardPoints[10].activeCard.DamageCardTop(enemyCardPoints[6].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[6].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked6 = true;
+                    EhasAttacked7 = true;
                 }
-                if (playerCardPoints[2].activeCard != null && !hasAttacked6)
+                if (playerCardPoints[2].activeCard != null && !EhasAttacked7)
                 {
                     playerCardPoints[2].activeCard.DamageCardDown(enemyCardPoints[6].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[6].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked6 = true;
+                    EhasAttacked7 = true;
                 }
                 else
                 {
@@ -834,26 +856,26 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[7].activeCard != null)
             {
 
-                if (playerCardPoints[4].activeCard != null && !hasAttacked7)
+                if (playerCardPoints[4].activeCard != null && !EhasAttacked8)
                 {
                     playerCardPoints[4].activeCard.DamageCardRight(enemyCardPoints[7].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[7].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked7 = true;
+                    EhasAttacked8 = true;
                 }
-                if (playerCardPoints[11].activeCard != null && !hasAttacked7)
+                if (playerCardPoints[11].activeCard != null && !EhasAttacked8)
                 {
                     playerCardPoints[11].activeCard.DamageCardTop(enemyCardPoints[7].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[7].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked7 = true;
+                    EhasAttacked8 = true;
                 }
-                if (playerCardPoints[3].activeCard != null && !hasAttacked7)
+                if (playerCardPoints[3].activeCard != null && !EhasAttacked8)
                 {
                     playerCardPoints[3].activeCard.DamageCardDown(enemyCardPoints[7].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[7].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked7 = true;
+                    EhasAttacked8 = true;
                 }
                 else
                 {
@@ -866,33 +888,33 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[8].activeCard != null)
             {
 
-                if (playerCardPoints[9].activeCard != null && !hasAttacked8)
+                if (playerCardPoints[9].activeCard != null && !EhasAttacked9)
                 {
                     playerCardPoints[9].activeCard.DamageCardRight(enemyCardPoints[8].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[8].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked8 = true;
+                    EhasAttacked9 = true;
                 }
-                if (playerCardPoints[12].activeCard != null && !hasAttacked8)
+                if (playerCardPoints[12].activeCard != null && !EhasAttacked9)
                 {
                     playerCardPoints[12].activeCard.DamageCardTop(enemyCardPoints[8].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[8].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked8 = true;
+                    EhasAttacked9 = true;
                 }
-                if (playerCardPoints[11].activeCard != null && !hasAttacked8)
+                if (playerCardPoints[11].activeCard != null && !EhasAttacked9)
                 {
                     playerCardPoints[11].activeCard.DamageCardLeft(enemyCardPoints[8].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
                     enemyCardPoints[8].activeCard.anim.SetTrigger("AttackLeft");
-                    hasAttacked8 = true;
+                    EhasAttacked9 = true;
                 }
-                if (playerCardPoints[4].activeCard != null && !hasAttacked8)
+                if (playerCardPoints[4].activeCard != null && !EhasAttacked9)
                 {
                     playerCardPoints[4].activeCard.DamageCardDown(enemyCardPoints[8].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[8].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked8 = true;
+                    EhasAttacked9 = true;
                 }
                 else
                 {
@@ -905,33 +927,33 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[9].activeCard != null)
             {
 
-                if (playerCardPoints[10].activeCard != null && !hasAttacked9)
+                if (playerCardPoints[10].activeCard != null && !EhasAttacked10)
                 {
                     playerCardPoints[10].activeCard.DamageCardRight(enemyCardPoints[9].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[9].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked9 = true;
+                    EhasAttacked10 = true;
                 }
-                if (playerCardPoints[13].activeCard != null && !hasAttacked9)
+                if (playerCardPoints[13].activeCard != null && !EhasAttacked10)
                 {
                     playerCardPoints[13].activeCard.DamageCardTop(enemyCardPoints[9].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[9].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked9 = true;
+                    EhasAttacked10 = true;
                 }
-                if (playerCardPoints[8].activeCard != null && !hasAttacked9)
+                if (playerCardPoints[8].activeCard != null && !EhasAttacked10)
                 {
                     playerCardPoints[8].activeCard.DamageCardLeft(enemyCardPoints[9].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
-                    hasAttacked9 = true;
+                    EhasAttacked10 = true;
                     enemyCardPoints[9].activeCard.anim.SetTrigger("AttackLeft");
                 }
-                if (playerCardPoints[5].activeCard != null && !hasAttacked9)
+                if (playerCardPoints[5].activeCard != null && !EhasAttacked10)
                 {
                     playerCardPoints[5].activeCard.DamageCardDown(enemyCardPoints[9].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[9].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked9 = true;
+                    EhasAttacked10 = true;
                 }
                 else
                 {
@@ -944,26 +966,26 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[10].activeCard != null)
             {
 
-                if (playerCardPoints[9].activeCard != null && !hasAttacked10)
+                if (playerCardPoints[9].activeCard != null && !EhasAttacked11)
                 {
                     playerCardPoints[9].activeCard.DamageCardLeft(enemyCardPoints[10].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
                     enemyCardPoints[10].activeCard.anim.SetTrigger("AttackLeft");
-                    hasAttacked10 = true;
+                    EhasAttacked11 = true;
                 }
-                if (playerCardPoints[14].activeCard != null && !hasAttacked10)
+                if (playerCardPoints[14].activeCard != null && !EhasAttacked11)
                 {
                     playerCardPoints[14].activeCard.DamageCardTop(enemyCardPoints[10].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[10].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked10 = true;
+                    EhasAttacked11 = true;
                 }
-                if (playerCardPoints[6].activeCard != null && !hasAttacked10)
+                if (playerCardPoints[6].activeCard != null && !EhasAttacked11)
                 {
                     playerCardPoints[6].activeCard.DamageCardDown(enemyCardPoints[10].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[10].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked10 = true;
+                    EhasAttacked11 = true;
                 }
                 else
                 {
@@ -976,26 +998,26 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[11].activeCard != null)
             {
 
-                if (playerCardPoints[8].activeCard != null && !hasAttacked11)
+                if (playerCardPoints[8].activeCard != null && !EhasAttacked12)
                 {
                     playerCardPoints[8].activeCard.DamageCardRight(enemyCardPoints[11].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[11].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked11 = true;
+                    EhasAttacked12 = true;
                 }
-                if (playerCardPoints[15].activeCard != null && !hasAttacked11)
+                if (playerCardPoints[15].activeCard != null && !EhasAttacked12)
                 {
                     playerCardPoints[15].activeCard.DamageCardTop(enemyCardPoints[11].activeCard.attackPowerTop);
                     Debug.Log("AttackTop");
                     enemyCardPoints[11].activeCard.anim.SetTrigger("AttackTop");
-                    hasAttacked11 = true;
+                    EhasAttacked12 = true;
                 }
-                if (playerCardPoints[7].activeCard != null && !hasAttacked11)
+                if (playerCardPoints[7].activeCard != null && !EhasAttacked12)
                 {
                     playerCardPoints[7].activeCard.DamageCardDown(enemyCardPoints[11].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[11].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked11 = true;
+                    EhasAttacked12 = true;
                 }
                 else
                 {
@@ -1008,26 +1030,26 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[12].activeCard != null)
             {
 
-                if (playerCardPoints[13].activeCard != null && !hasAttacked12)
+                if (playerCardPoints[13].activeCard != null && !EhasAttacked13)
                 {
                     playerCardPoints[13].activeCard.DamageCardRight(enemyCardPoints[12].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[12].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked12 = true;
+                    EhasAttacked13 = true;
                 }
-                if (playerCardPoints[15].activeCard != null && !hasAttacked12)
+                if (playerCardPoints[15].activeCard != null && !EhasAttacked13)
                 {
                     playerCardPoints[15].activeCard.DamageCardLeft(enemyCardPoints[12].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
                     enemyCardPoints[12].activeCard.anim.SetTrigger("AttackLeft");
-                    hasAttacked12 = true;
+                    EhasAttacked13 = true;
                 }
-                if (playerCardPoints[8].activeCard != null && !hasAttacked12)
+                if (playerCardPoints[8].activeCard != null && !EhasAttacked13)
                 {
                     playerCardPoints[8].activeCard.DamageCardDown(enemyCardPoints[12].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[12].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked12 = true;
+                    EhasAttacked13 = true;
                 }
                 else
                 {
@@ -1040,26 +1062,26 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[13].activeCard != null)
             {
 
-                if (playerCardPoints[14].activeCard != null && !hasAttacked13)
+                if (playerCardPoints[14].activeCard != null && !EhasAttacked14)
                 {
                     playerCardPoints[14].activeCard.DamageCardRight(enemyCardPoints[13].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[13].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked13 = true;
+                    EhasAttacked14 = true;
                 }
-                if (playerCardPoints[9].activeCard != null && !hasAttacked13)
+                if (playerCardPoints[9].activeCard != null && !EhasAttacked14)
                 {
                     playerCardPoints[9].activeCard.DamageCardDown(enemyCardPoints[13].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[13].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked13 = true;
+                    EhasAttacked14 = true;
                 }
-                if (playerCardPoints[12].activeCard != null && !hasAttacked13)
+                if (playerCardPoints[12].activeCard != null && !EhasAttacked14)
                 {
                     playerCardPoints[12].activeCard.DamageCardLeft(enemyCardPoints[13].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
                     enemyCardPoints[13].activeCard.anim.SetTrigger("AttackLeft");
-                    hasAttacked13 = true;
+                    EhasAttacked14 = true;
                 }
                 else
                 {
@@ -1072,19 +1094,19 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[14].activeCard != null)
             {
 
-                if (playerCardPoints[13].activeCard != null && !hasAttacked14)
+                if (playerCardPoints[13].activeCard != null && !EhasAttacked15)
                 {
                     playerCardPoints[13].activeCard.DamageCardLeft(enemyCardPoints[14].activeCard.attackPowerLeft);
                     Debug.Log("AttackLeft");
                     enemyCardPoints[14].activeCard.anim.SetTrigger("AttackLeft");
-                    hasAttacked14 = true;
+                    EhasAttacked15 = true;
                 }
-                if (playerCardPoints[10].activeCard != null && !hasAttacked14)
+                if (playerCardPoints[10].activeCard != null && !EhasAttacked15)
                 {
                     playerCardPoints[10].activeCard.DamageCardDown(enemyCardPoints[14].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[14].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked14 = true;
+                    EhasAttacked15 = true;
                 }
                 else
                 {
@@ -1097,19 +1119,19 @@ public class CardPointController : MonoBehaviour
             if (enemyCardPoints[15].activeCard != null)
             {
 
-                if (playerCardPoints[11].activeCard != null && !hasAttacked15)
+                if (playerCardPoints[11].activeCard != null && !EhasAttacked16)
                 {
                     playerCardPoints[11].activeCard.DamageCardDown(enemyCardPoints[15].activeCard.attackPowerDown);
                     Debug.Log("AttackDown");
                     enemyCardPoints[15].activeCard.anim.SetTrigger("AttackDown");
-                    hasAttacked15 = true;
+                    EhasAttacked16 = true;
                 }
-                if (playerCardPoints[12].activeCard != null && !hasAttacked15)
+                if (playerCardPoints[12].activeCard != null && !EhasAttacked16)
                 {
                     playerCardPoints[12].activeCard.DamageCardRight(enemyCardPoints[15].activeCard.attackPowerRight);
                     Debug.Log("AttackRight");
                     enemyCardPoints[15].activeCard.anim.SetTrigger("AttackRight");
-                    hasAttacked15 = true;
+                    EhasAttacked16 = true;
                 }
                 else
                 {
@@ -1117,6 +1139,10 @@ public class CardPointController : MonoBehaviour
                 }
 
                 yield return new WaitForSeconds(TimeBetweenAttack);
+            }
+            if (BattleController.instance.battleEnded == true)
+            {
+                i = enemyCardPoints.Length;
             }
         }
 

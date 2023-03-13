@@ -36,6 +36,7 @@ public class Card : MonoBehaviour
 
     public bool inHand;
     public int handPosition;
+ 
 
     public bool onRead;
     public bool CardDeath;
@@ -51,7 +52,7 @@ public class Card : MonoBehaviour
     public CardPlacePoint assignedPlace;
 
     public Animator anim;
-    public float TimeBeforeDead = 0.60f;
+    public float TimeBeforeDead = 1f;
 
 
 
@@ -124,13 +125,13 @@ public class Card : MonoBehaviour
             }
 
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && BattleController.instance.battleEnded == false)
             {
                 ReturnToHand();
             }
 
 
-            if (Input.GetMouseButtonDown(0) && justPressed == false )
+            if (Input.GetMouseButtonDown(0) && justPressed == false && BattleController.instance.battleEnded == false)
             {
 
                 if (Physics.Raycast(ray, out hit, 100f, whatIsPlacment) && BattleController.instance.currentPhase == BattleController.TurnOrder.playerActive)
@@ -147,19 +148,17 @@ public class Card : MonoBehaviour
 
                             if (CardPlacePoint.instance.IsEnemyPlace == true)
                            {
-                               ReturnToHand();
+                              // ReturnToHand();
                                Debug.Log("Enemy Place");
                             }
                            else
                             {
-                                CardPlacePoint cardPoint = CardPointController.instance.playerCardPoints[0];
-                                cardPoint.IsPlayerPlace = true;
-                                Debug.Log("IsPlayerPlaceTrue");
-                                //AttackLeft.enabled = true;
-                                //AttackRight.enabled = true;
-                                //AttackTop.enabled = true;
-                                //AttackDown.enabled = true;
-
+                                for (int i = 0; i < CardPointController.instance.playerCardPoints.Length; i++)
+                                {
+                                    CardPlacePoint cardPoint = CardPointController.instance.playerCardPoints[i];
+                                    cardPoint.IsPlayerPlace = true;
+                                    Debug.Log("IsPlayerPlaceTrue");
+                                }
 
                                 // CardPlacePoint.instance.isPlayerPoint = false;
                                 selectedPoint.activeCard = this;
@@ -236,7 +235,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (inHand && IsPlayer)
+        if (inHand && IsPlayer && BattleController.instance.battleEnded == false)
         {
             onRead = false;
             OnreadFalse();
@@ -249,14 +248,14 @@ public class Card : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (inHand && IsPlayer)
+        if (inHand && IsPlayer && BattleController.instance.battleEnded == false)
         {
             onRead = true;
             //On Read Delay Before return to the Point
             if (onRead)
             {
 
-                MovetoPoint(theHC.cardPosition[handPosition] + new Vector3(0.2f, 0f, 0f), Quaternion.identity);
+                MovetoPoint(theHC.cardPosition[handPosition] + new Vector3(0.5f, 0f, 0f), Quaternion.identity);
              //   Invoke("OnreadFalse", 2);
             }
             else
@@ -304,16 +303,16 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (inHand && BattleController.instance.currentPhase == BattleController.TurnOrder.playerActive && IsPlayer)
+        if (inHand && BattleController.instance.currentPhase == BattleController.TurnOrder.playerActive && IsPlayer && BattleController.instance.battleEnded == false)
         {
             // check if time since last click is within the time limit for double click
             if (Time.time - lastClickTime < doubleClickTimeLimit)
             {
-                MovetoPoint(theHC.cardPosition[handPosition] + new Vector3(10f, 0f, 0f), Quaternion.identity);
+             //   MovetoPoint(theHC.cardPosition[handPosition] + new Vector3(10f, 0f, 0f), Quaternion.identity);
                 // double click detected
-                transform.localScale = new Vector3(1.7f, 1.7f, 1.2f);
+             //   transform.localScale = new Vector3(1.7f, 1.7f, 1.2f);
 
-                Debug.Log("Card Big");
+             //   Debug.Log("Card Big");
                 isSelected = false;
                 theCol.enabled = true;
                 justPressed = false;
@@ -341,16 +340,16 @@ public class Card : MonoBehaviour
 
     public void DamageCardLeft(int damageAmountLeft)
     {
-        if (currentHealthLeft >= damageAmountLeft)
+        if (currentHealthRight >= damageAmountLeft)
         {
 
         }
         else
         {
-            currentHealthLeft -= damageAmountLeft;
-            if (currentHealthLeft <= 0)
+            currentHealthRight -= damageAmountLeft;
+            if (currentHealthRight <= 0)
             {
-                currentHealthLeft = 0;
+                currentHealthRight = 0;
 
                 assignedPlace.activeCard = null;
                 CardDeath = true;
@@ -371,16 +370,16 @@ public class Card : MonoBehaviour
 
     public void DamageCardRight(int damageAmountRight)
     {
-        if( currentHealthRight >= damageAmountRight)
+        if( currentHealthLeft >= damageAmountRight)
         {
 
         }
         else
         {
-            currentHealthRight -= damageAmountRight;
-            if (currentHealthRight <= 0)
+            currentHealthLeft -= damageAmountRight;
+            if (currentHealthLeft <= 0)
             {
-                currentHealthRight = 0;
+                currentHealthLeft = 0;
 
                 assignedPlace.activeCard = null;
                 CardDeath = true;
@@ -398,16 +397,16 @@ public class Card : MonoBehaviour
 
     public void DamageCardTop(int damageAmountTop)
     {
-        if (currentHealthTop >= damageAmountTop)
+        if (currentHealthDown >= damageAmountTop)
         {
 
         }
         else
         {
-            currentHealthTop -= damageAmountTop;
-            if (currentHealthTop <= 0)
+            currentHealthDown -= damageAmountTop;
+            if (currentHealthDown <= 0)
             {
-                currentHealthTop = 0;
+                currentHealthDown = 0;
 
                 assignedPlace.activeCard = null;
                 CardDeath = true;
@@ -425,16 +424,16 @@ public class Card : MonoBehaviour
 
     public void DamageCardDown(int damageAmountDown)
     {
-        if (currentHealthDown >= damageAmountDown)
+        if (currentHealthTop >= damageAmountDown)
         {
 
         }
         else
         {
-            currentHealthDown -= damageAmountDown;
-            if (currentHealthDown <= 0)
+            currentHealthTop -= damageAmountDown;
+            if (currentHealthTop <= 0)
             {
-                currentHealthDown = 0;
+                currentHealthTop = 0;
 
                 assignedPlace.activeCard = null;
                 CardDeath = true;

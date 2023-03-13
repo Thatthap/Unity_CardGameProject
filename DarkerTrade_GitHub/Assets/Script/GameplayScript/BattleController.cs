@@ -24,7 +24,8 @@ public class BattleController : MonoBehaviour
     public int EnemyManaUsed = 0;
     public int playerManaUsedThisTurn;
     public int enemyManaUsedThisTurn;
-
+    public int Damage;
+    
 
     private int currentPlayerMaxMana,currentEnemyMaxMana;
 
@@ -34,7 +35,7 @@ public class BattleController : MonoBehaviour
     public enum TurnOrder { playerActive,playerCardAttacks,enemyActive,enemyCardAttack,LeaderAttack}
     public TurnOrder currentPhase;
     public int cardsToDrawPerTurn = 0;
-
+    public int CardPlaceAllTime = 0;
     public int CardPlacePerTurn = 0;
     public int EnemyCardPlace = 0;
 
@@ -42,6 +43,9 @@ public class BattleController : MonoBehaviour
 
     public int playerHealth;
     public int enemyHealth;
+
+    public bool battleEnded;
+    public float resultScreenDelayTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -126,6 +130,8 @@ public class BattleController : MonoBehaviour
 
     public void AdvanceTurn()
     {
+        if(battleEnded == false)
+        { 
         currentPhase++;
 
         if((int)(currentPhase) >= System.Enum.GetValues(typeof(TurnOrder)).Length)
@@ -133,110 +139,111 @@ public class BattleController : MonoBehaviour
             currentPhase = 0;
         }
 
-        switch (currentPhase)
-        {
-            case TurnOrder.playerActive:
+            switch (currentPhase)
+            {
+                case TurnOrder.playerActive:
 
-                UIController.instance.endTurnButton.SetActive(true);
-             //   UIController.instance.drawCardButton.SetActive(true);
+                    UIController.instance.endTurnButton.SetActive(true);
+                    //   UIController.instance.drawCardButton.SetActive(true);
 
-                if(currentPlayerMaxMana < MaxMana)
-                {
-                    currentPlayerMaxMana++;
-                }
+                    if (currentPlayerMaxMana < MaxMana)
+                    {
+                        currentPlayerMaxMana++;
+                    }
 
-                FillPlayerMana();
-                FillEnemyMana();
-                DeckController.instance.DrawMultipleCards(cardsToDrawPerTurn + CardPlacePerTurn);
-                CardPlacePerTurn = 0;
-                CardPointController.instance.hasAttacked1 = false; CardPointController.instance.hasAttacked2 = false; CardPointController.instance.hasAttacked3 = false; CardPointController.instance.hasAttacked4 = false; CardPointController.instance.hasAttacked5 = false;
-                CardPointController.instance.hasAttacked6 = false; CardPointController.instance.hasAttacked7 = false; CardPointController.instance.hasAttacked8 = false; CardPointController.instance.hasAttacked9 = false; CardPointController.instance.hasAttacked10 = false;
-                CardPointController.instance.hasAttacked11 = false; CardPointController.instance.hasAttacked12 = false; CardPointController.instance.hasAttacked13 = false; CardPointController.instance.hasAttacked14 = false; CardPointController.instance.hasAttacked15 = false; CardPointController.instance.hasAttacked16 = false;
+                    FillPlayerMana();
+                    FillEnemyMana();
+                    DeckController.instance.DrawMultipleCards(cardsToDrawPerTurn + CardPlacePerTurn + CardPlaceAllTime);
+                    CardPlacePerTurn = 0;
+                    /*CardPointController.instance.hasAttacked1 = false; CardPointController.instance.hasAttacked2 = false; CardPointController.instance.hasAttacked3 = false; CardPointController.instance.hasAttacked4 = false; CardPointController.instance.hasAttacked5 = false;
+                    CardPointController.instance.hasAttacked6 = false; CardPointController.instance.hasAttacked7 = false; CardPointController.instance.hasAttacked8 = false; CardPointController.instance.hasAttacked9 = false; CardPointController.instance.hasAttacked10 = false;
+                    CardPointController.instance.hasAttacked11 = false; CardPointController.instance.hasAttacked12 = false; CardPointController.instance.hasAttacked13 = false; CardPointController.instance.hasAttacked14 = false; CardPointController.instance.hasAttacked15 = false; CardPointController.instance.hasAttacked16 = false;*/
 
-                UIController.instance.TurnReaderText.text = "Player Turn";
-
-
-                break;
-
-            case TurnOrder.playerCardAttacks:
-
-                //Debug.Log("skipping Player Card Attack");
-    
-                CardPointController.instance.PlayerAttack();
-                UIController.instance.TurnReaderText.text = "Player Attack";
+                    UIController.instance.TurnReaderText.text = "Player Turn";
 
 
-                break;
+                    break;
 
-            case TurnOrder.enemyActive:
+                case TurnOrder.playerCardAttacks:
 
-                if (currentEnemyMaxMana < MaxMana)
-                {
-                    currentEnemyMaxMana++;
-                }
+                    //Debug.Log("skipping Player Card Attack");
 
-
-                CardPointController.instance.hasAttacked1 = false; CardPointController.instance.hasAttacked2 = false; CardPointController.instance.hasAttacked3 = false; CardPointController.instance.hasAttacked4 = false; CardPointController.instance.hasAttacked5 = false;
-                CardPointController.instance.hasAttacked6 = false; CardPointController.instance.hasAttacked7 = false; CardPointController.instance.hasAttacked8 = false; CardPointController.instance.hasAttacked9 = false; CardPointController.instance.hasAttacked10 = false;
-                CardPointController.instance.hasAttacked11 = false; CardPointController.instance.hasAttacked12 = false; CardPointController.instance.hasAttacked13 = false; CardPointController.instance.hasAttacked14 = false; CardPointController.instance.hasAttacked15 = false; CardPointController.instance.hasAttacked16 = false;
-                UIController.instance.TurnReaderText.text = "Enemy Turn";
-                //AdvanceTurn();
-                EnemyController.instance.StartAction();
+                    CardPointController.instance.PlayerAttack();
+                    UIController.instance.TurnReaderText.text = "Player Attack";
 
 
-                break;
+                    break;
 
-            case TurnOrder.enemyCardAttack:
+                case TurnOrder.enemyActive:
 
-                Debug.Log("Enemy Card Attack");
-                //AdvanceTurn();
-                CardPointController.instance.EnemyCardAttack();
-                UIController.instance.TurnReaderText.text = "Enemy Attack";
+                    if (currentEnemyMaxMana < MaxMana)
+                    {
+                        currentEnemyMaxMana++;
+                    }
 
-                break;
 
-            case TurnOrder.LeaderAttack:
+                   /* CardPointController.instance.hasAttacked1 = false; CardPointController.instance.hasAttacked2 = false; CardPointController.instance.hasAttacked3 = false; CardPointController.instance.hasAttacked4 = false; CardPointController.instance.hasAttacked5 = false;
+                    CardPointController.instance.hasAttacked6 = false; CardPointController.instance.hasAttacked7 = false; CardPointController.instance.hasAttacked8 = false; CardPointController.instance.hasAttacked9 = false; CardPointController.instance.hasAttacked10 = false;
+                    CardPointController.instance.hasAttacked11 = false; CardPointController.instance.hasAttacked12 = false; CardPointController.instance.hasAttacked13 = false; CardPointController.instance.hasAttacked14 = false; CardPointController.instance.hasAttacked15 = false; CardPointController.instance.hasAttacked16 = false;*/
+                    UIController.instance.TurnReaderText.text = "Enemy Turn";
+                    //AdvanceTurn();
+                    EnemyController.instance.StartAction();
 
-                /*for (int i = 0; i < CardPointController.instance.enemyCardPoints.Length ; i++)
-                 {
-                     CardPointController.instance.enemyCardPoints[i].activeCard = null;
-                   //  CardPointController.instance.playerCardPoints[i].activeCard.anim.SetTrigger("AttackLeader");
-                     Debug.Log("EnemyPointNotActivated");
-                 } //Card active = null
-                 for (int i = 0; i < CardPointController.instance.playerCardPoints.Length; i++)
-                 {
-                     CardPointController.instance.playerCardPoints[i].activeCard = null;
-                     //  CardPointController.instance.playerCardPoints[i].activeCard.anim.SetTrigger("AttackLeader");
-                     Debug.Log("PlayerPointNotActivated");
-                 } //Card active = null*/
 
-                Standby++;
-                if(Standby == 2)
-                {
-                    Debug.Log("Leader Attack");
-                    DamageEnemy(PlayerManaUsed);
-                    DamagePlayer(EnemyManaUsed);
-                    UIController.instance.TurnReaderText.text = "Leader Attack";
-                    PlayerManaUsed = 0;
-                    EnemyManaUsed = 0;
+                    break;
 
-                    AdvanceTurn();
+                case TurnOrder.enemyCardAttack:
 
-                    PlayerManaUsed += playerManaUsedThisTurn;
-                    EnemyManaUsed += enemyManaUsedThisTurn;
-                    playerManaUsedThisTurn = 0;
-                    enemyManaUsedThisTurn = 0;
-                    Standby = 0;
-                }
-                else
-                {
-                    Debug.Log("Standby");
-                    UIController.instance.TurnReaderText.text = "Standby";
-                    AdvanceTurn();
-                }
+                    Debug.Log("Enemy Card Attack");
+                    //AdvanceTurn();
+                    CardPointController.instance.EnemyCardAttack();
+                    UIController.instance.TurnReaderText.text = "Enemy Attack";
 
-                //AdvanceTurn();
-                break;
+                    break;
+
+                case TurnOrder.LeaderAttack:
+
+                    /*for (int i = 0; i < CardPointController.instance.enemyCardPoints.Length ; i++)
+                     {
+                         CardPointController.instance.enemyCardPoints[i].activeCard = null;
+                       //  CardPointController.instance.playerCardPoints[i].activeCard.anim.SetTrigger("AttackLeader");
+                         Debug.Log("EnemyPointNotActivated");
+                     } //Card active = null
+                     for (int i = 0; i < CardPointController.instance.playerCardPoints.Length; i++)
+                     {
+                         CardPointController.instance.playerCardPoints[i].activeCard = null;
+                         //  CardPointController.instance.playerCardPoints[i].activeCard.anim.SetTrigger("AttackLeader");
+                         Debug.Log("PlayerPointNotActivated");
+                     } //Card active = null*/
+
+                    Standby++;
+                    if (Standby == 2)
+                    {
+                        Debug.Log("Leader Attack");
+                        DamageEnemy(PlayerManaUsed);
+                        DamagePlayer(EnemyManaUsed);
+                        UIController.instance.TurnReaderText.text = "Leader Attack";
+                        PlayerManaUsed = 0;
+                        EnemyManaUsed = 0;
+
+                        AdvanceTurn();
+
+                        PlayerManaUsed += playerManaUsedThisTurn;
+                        EnemyManaUsed += enemyManaUsedThisTurn;
+                        playerManaUsedThisTurn = 0;
+                        enemyManaUsedThisTurn = 0;
+                        Standby = 0;
+                    }
+                    else
+                    {
+                        Debug.Log("Standby");
+                        UIController.instance.TurnReaderText.text = "Standby";
+                        AdvanceTurn();
+                    }
+
+                    //AdvanceTurn();
+                    break;
+            }
         }
     }
 
@@ -249,32 +256,51 @@ public class BattleController : MonoBehaviour
         AdvanceTurn();
     }
 
+
+
     public void DamageEnemy(int costAmount)
     {
         //costAmount = PlayerManaUsed;
         playerManaUsedThisTurn += costAmount;
 
-        if (enemyHealth > 0)
+        if (enemyHealth > 0 || battleEnded == false)
         {
-      
-            SpendPlayerMana(costAmount);
-            enemyHealth -= costAmount;
 
-            if(enemyHealth <= 0)
+            if(EnemyManaUsed > costAmount)
             {
-                enemyHealth = 0;
 
-                //End Battle
             }
-
-            UIController.instance.SetEnemyLeaderHealth(enemyHealth);
-
-            UIDamageIndicator damageClone = Instantiate(UIController.instance.enemyDamage, UIController.instance.enemyDamage.transform.parent );
-            damageClone.damageText.text = costAmount.ToString();
-            if(costAmount > 0)
+            else
             {
-                damageClone.gameObject.SetActive(true);
+                SpendPlayerMana(costAmount);
+                enemyHealth -= (costAmount - EnemyManaUsed);
+                Damage = costAmount - EnemyManaUsed;
+                if (enemyHealth < 5)
+                {
+                    EnemyController.instance.enemyAIType = EnemyController.AIType.handDefensive;
+                    Debug.Log("AIdefensive");
+                }
+
+
+                if (enemyHealth <= 0)
+                {
+                    enemyHealth = 0;
+
+                    //End Battle
+                    EndBattle();
+                }
+
+                UIController.instance.SetEnemyLeaderHealth(enemyHealth);
+
+                UIDamageIndicator damageClone = Instantiate(UIController.instance.enemyDamage, UIController.instance.enemyDamage.transform.parent);
+                damageClone.damageText.text = Damage.ToString();
+                if (Damage > 0)
+                {
+                    damageClone.gameObject.SetActive(true);
+                }
+
             }
+           
 
         }
     }
@@ -286,29 +312,86 @@ public class BattleController : MonoBehaviour
         //enemycostAmount = EnemyManaUsed;
         enemyManaUsedThisTurn += enemycostAmount;
 
-        if (playerHealth > 0)
+        if (playerHealth > 0 || battleEnded == false)
         {
-
-            SpendEnemyMana(enemycostAmount);
-            playerHealth -= enemycostAmount;
-            Debug.Log("EnemyAttackLeader");
-
-                if(playerHealth <= 0)
+            if(PlayerManaUsed > enemycostAmount)
             {
-                playerHealth = 0;
 
-                //End Battle
             }
-
-            UIController.instance.SetPlayerLeaderHealth(playerHealth);
-            UIDamageIndicator damageClone = Instantiate(UIController.instance.playerDamage, UIController.instance.playerDamage.transform.parent);
-            damageClone.damageText.text = enemycostAmount.ToString();
-            if (enemycostAmount > 0)
+            else
             {
-                damageClone.gameObject.SetActive(true);
+                SpendEnemyMana(enemycostAmount);
+                playerHealth -= (enemycostAmount - PlayerManaUsed);
+                Damage = enemycostAmount - PlayerManaUsed;
+                Debug.Log("EnemyAttackLeader");
+
+                if (playerHealth < 5)
+                {
+                    EnemyController.instance.enemyAIType = EnemyController.AIType.handAttacking;
+                    Debug.Log("AIattacking");
+                }
+
+                if (playerHealth <= 0)
+                {
+                    playerHealth = 0;
+
+                    //End Battle
+                    EndBattle();
+                }
+
+                UIController.instance.SetPlayerLeaderHealth(playerHealth);
+                UIDamageIndicator damageClone = Instantiate(UIController.instance.playerDamage, UIController.instance.playerDamage.transform.parent);
+                damageClone.damageText.text = Damage.ToString();
+                if (Damage > 0)
+                {
+                    damageClone.gameObject.SetActive(true);
+                }
+            }
+  
+        }
+
+    }
+
+    void EndBattle()
+    {
+        battleEnded = true;
+
+        HandController.instance.EmptyHand();
+
+        if(enemyHealth <= 0)
+        {
+            UIController.instance.battleResultText.text = "WIN";
+
+            foreach(CardPlacePoint point in CardPointController.instance.enemyCardPoints)
+            {
+                if(point.activeCard != null)
+                {
+                    point.activeCard.MovetoPoint(discardPoint.position, point.activeCard.transform.rotation);
+                }
+            }
+        }
+        else
+        {
+            UIController.instance.battleResultText.text = "LOST";
+
+            foreach (CardPlacePoint point in CardPointController.instance.playerCardPoints)
+            {
+                if (point.activeCard != null)
+                {
+                    point.activeCard.MovetoPoint(discardPoint.position, point.activeCard.transform.rotation);
+                }
             }
         }
 
+
+        StartCoroutine(ShowResultCO());
+
+    }
+
+    IEnumerator ShowResultCO()
+    {
+        yield return new WaitForSeconds(resultScreenDelayTime);
+        UIController.instance.BattleEndedScreen.SetActive(true);
     }
 
 }

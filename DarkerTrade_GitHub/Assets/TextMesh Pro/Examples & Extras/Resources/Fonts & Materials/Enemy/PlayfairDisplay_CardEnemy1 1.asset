@@ -31,7 +31,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FaceTex:
-        m_Texture: {fileID: 2800000, guid: 8ed691ff58d617045ae786cbd4611c6e, type: 3}
+        m_Texture: {fileID: 2800000, guid: e51ba10e3fdb56649a34ec1123e9b1bf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -55,26 +55,26 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: 0.53
+    - _FaceDilate: 0.33
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlowInner: 0.45
-    - _GlowOffset: 1
-    - _GlowOuter: 0.323
-    - _GlowPower: 0.067
+    - _GlowInner: 0.183
+    - _GlowOffset: 0
+    - _GlowOuter: 0.513
+    - _GlowPower: 0.575
     - _GradientScale: 6
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
-    - _OutlineSoftness: 0
+    - _OutlineSoftness: 1
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.015
+    - _OutlineWidth: 0.22
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 0.8333333
-    - _ScaleRatioB: 0.17794158
-    - _ScaleRatioC: 0.2354167
+    - _ScaleRatioA: 0.4796163
+    - _ScaleRatioB: 0.4020833
+    - _ScaleRatioC: 0.4020833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -98,14 +98,14 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 4, g: 4, b: 4, a: 1}
-    - _GlowColor: {r: 0, g: 0.0867033, b: 1, a: 0.5}
+    - _FaceColor: {r: 0.6509434, g: 0.035314262, b: 0, a: 1}
+    - _GlowColor: {r: 1, g: 0.13614154, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 0.5}
+    - _UnderlayColor: {r: 1, g: 0, b: 0, a: 0.5}
   m_BuildTextureStacks: []
 --- !u!114 &11400000
 MonoBehaviour:
@@ -117,11 +117,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: PlayfairDisplay-Health
+  m_Name: PlayfairDisplay_CardEnemy1 1
   m_EditorClassIdentifier: 
-  hashCode: -2031063981
+  hashCode: -1047871262
   material: {fileID: -8524423298304631618}
-  materialHashCode: -146472045
+  materialHashCode: -1143738878
   m_Version: 1.1.0
   m_SourceFontFileGUID: cf22f892dd705412a8823211a524cc98
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: cf22f892dd705412a8823211a524cc98,

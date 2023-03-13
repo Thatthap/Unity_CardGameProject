@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -22,6 +22,10 @@ public class UIController : MonoBehaviour
     private float ManaWarningCounter;
     public GameObject drawCardButton, endTurnButton ;
     public UIDamageIndicator playerDamage, enemyDamage;
+
+
+    public GameObject BattleEndedScreen;
+    public TMP_Text battleResultText;
 
     // Start is called before the first frame update
     void Start()
@@ -79,4 +83,25 @@ public class UIController : MonoBehaviour
     {
         BattleController.instance.EndPlayerTurn();
     }
-}
+
+    public void MainMenu(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void RestartLevel(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void NewBattle(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+        Debug.Log("EXIT GAME");
+    }
+} 
